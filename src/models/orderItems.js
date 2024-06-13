@@ -26,9 +26,6 @@ const orderItemSchema = new mongoose.Schema({
         ref:'users',
         required:true
     },
-    deliveryType:{
-        type:Date
-    },
     createdAt:{
         type:Date,
         default:Date.now()
