@@ -9,7 +9,7 @@ const generateToken =(userId)=>{
 
 const getUserIdFromToken=(token)=>{ // getting out the userId from the token that we recieved from the request
     const decodedToken=jwt.verify(token,SECRET_KEY) //checks if the token is valid or not
-    return decodedToken.userId
+    return decodedToken.userId // if token is valid then the token is returned
 } 
 
 export {generateToken,getUserIdFromToken}
