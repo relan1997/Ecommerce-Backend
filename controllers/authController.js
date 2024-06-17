@@ -8,14 +8,14 @@ import {
 } from "../services/userService";
 
 import {generateToken,getUserIdFromToken} from '../config/jwtProvider'
-import User from "../src/models/userModel";
+import { createCart } from '../services/cartService';
 
 const register = async (req, res) => {
     try{
         const user = await createUser(req.body);
         const jwt = generateToken(user._id);
 
-        //await cartService.createCart(user);
+        await createCart(user);
 
         return res.status(200).send({jwt,message:'resgiter success'})
     }
