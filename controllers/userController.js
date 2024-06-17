@@ -2,7 +2,7 @@ import {createUser,
     findUserByEmail,
     findUserById,
     getUserProfileByToken,
-    getAllUsers,} from '../services/userService'
+    getAllUsers,} from '../services/userService.js'
 const getUserProfile = async(req,res)=>{
     try {// for understanding the above code pls visit https://chatgpt.com/c/bd3e57ad-c789-491b-b53c-230a4a96f970
         const jwt = req.headers.authorization?.split(" ")[1];
@@ -15,8 +15,8 @@ const getUserProfile = async(req,res)=>{
         //agar token mil gya toh actual user find karunga
         const user = await getUserProfileByToken(jwt)
         return res.status(200).send(user)
-    } catch (err) {
-        return res.status(500).send({error:err.message})
+    } catch (error) {
+        return res.status(500).send({error:error.message})
     }
 }
 
@@ -24,8 +24,8 @@ const getAllUser = async(req,res)=>{
     try {
         const users=await getAllUsers();
         return res.status(200).send(users)
-    } catch (err) {
-        return res.status(500).send({error:err.message})
+    } catch (error) {
+        return res.status(500).send({error:error.message})
     }
 }
 export {getUserProfile,getAllUser}

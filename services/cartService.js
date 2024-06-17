@@ -1,4 +1,4 @@
-import Cart from '../src/models/cartModel'
+import Cart from '../src/models/cartModel.js'
 
 const createCart = async (user)=>{
     try {

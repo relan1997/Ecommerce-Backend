@@ -1,8 +1,7 @@
 //user ki service banayenge jisska use karke hum controller banayenge, jiska use karke hum routes banayenge
-import { JsonWebTokenError } from "jsonwebtoken";
-import User from "../src/models/userModel";
+import User from "../src/models/userModel.js";
 import bcrypt from "bcryptjs";
-import { getUserIdFromToken } from "../config/jwtProvider";
+import { getUserIdFromToken } from "../config/jwtProvider.js";
 const createUser = async (userData) => {
   //userData is bascially the object that the frontend passes
   try {
@@ -24,7 +23,8 @@ const createUser = async (userData) => {
 const findUserById = async (userId) => {
   //if we enter the userId toh yeh woh user ko search karke dega
   try {
-    const user = await User.findById(userId).populate("address");
+    const user = await User.findById(userId)
+    //.populate("address");
     if (!user) throw new Error("user not found with id:", userId);
     return user;
   } catch (err) {
