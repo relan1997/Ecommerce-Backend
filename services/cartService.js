@@ -11,7 +11,7 @@ const createCart = async (user) => {
   }
 };
 
-const findUserCard = async (userId) => {
+const findUserCart = async (userId) => {
   try {
     let cart = await Cart.findOne({ user: userId });
 
@@ -68,4 +68,4 @@ const addCartItem = async (userId, req) => {
 }   
 };
 
-export { createCart , findUserCard, addCartItem};
+export { createCart , findUserCart, addCartItem};
