@@ -5,3 +5,5 @@ import { authenticate } from "../middleware/authenticate";
 
 cartRouter.get("/",authenticate, findUsersCart);
 cartRouter.put("/add", authenticate, addItemToCart);
+
+export {cartRouter};
